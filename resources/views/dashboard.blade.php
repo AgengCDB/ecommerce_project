@@ -11,6 +11,16 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("You're logged in!") }}
                 </div>
+
+                {{-- If admin, show button --}}
+                @if(Auth::check() && Auth::user()->usertype === 'admin')
+                <div class="container mt-4">
+                    <a href="{{ url('admin/dashboard') }}" class="btn btn-primary">Admin Dashboard</a>
+                </div>
+                @endif
+
+
+
             </div>
         </div>
     </div>
